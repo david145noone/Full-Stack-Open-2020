@@ -1,0 +1,21 @@
+note over browser:
+User clicks save note button
+end note
+
+browser->server: HTTP POST https://fullstack-exampleapp.herokuapp.com/new_note_spa
+
+note over server:
+POST body (payload) contains the JSON for a new note,
+which is the message and the timestamp.
+end note
+
+note over server:
+Server saves the new message from the req.body with notes.push({})
+A respose code of 201 is sent along with a confirmation message.
+end note
+
+server-->browser: HTTP response
+
+note over browser:
+Notes are redrawn to show new note added
+end note
