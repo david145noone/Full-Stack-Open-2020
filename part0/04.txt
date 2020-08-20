@@ -1,0 +1,32 @@
+note over browser:
+User types note and hits button
+end note
+
+note over browser:
+Browser sends POST request to url/new_note.
+end note
+
+browser->server: HTTP POST to https://fullstack-exampleapp.herokuapp.com/new_note
+
+note over server
+Request body is new_note text. 
+Status Code is 302: Found then redirected.
+end note 
+server-->server: HTTP GET to https://fullstack-exampleapp.herokuapp.com/note
+
+server-->browser: body contains text/html for notes
+note over browser
+Browser receives this html and status code is 200
+end note 
+browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.css
+server-->browser: main.css
+browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.js
+server-->browser: main.js
+browser-->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/data.json
+server --> browser: data.json
+
+
+note over browser:
+browser executes the event handler
+that renders notes to display
+end note
